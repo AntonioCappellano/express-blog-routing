@@ -35,4 +35,14 @@ router.get("/:id", (req, res) => {
   res.json(responseData);
 });
 
+// STORE
+router.post("/", (req, res) => {
+  const responseData = {
+    result: `Creazione post`,
+    success: true,
+  };
+
+  res.json(responseData);
+});
+
 module.exports = router;
