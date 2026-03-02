@@ -12,5 +12,27 @@ router.get("/", (req, res) => {
   res.json(responseData);
 });
 
+// SHOW
+router.get("/:id", (req, res) => {
+  const postsId = parseInt(req.params.id);
+  const post = posts.find((post) => post.id === postsId);
 
-module.exports = router
+  if (!post) {
+    const respondeData = {
+      messagge: `Post numero ${postsId} non trovato`,
+      success: false,
+    };
+
+    return res.status(404).json(respondeData);
+  }
+
+  const responseData = {
+    results: post,
+    message: `Post ${postsId}`,
+    success: true,
+  };
+
+  res.json(responseData);
+});
+
+module.exports = router;
