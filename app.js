@@ -3,16 +3,18 @@ const app = express();
 const port = 3000;
 const appUrl = `http://localhost:${port}`;
 
+// imports
+
+const postsRouter = require("./Routers/posts");
+
+// middlewares
+
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  const responseData = {
-    message: "Benvenuti",
-    success: true,
-  };
+// routers
 
-  res.status(200).json(responseData);
-});
+app.use("/posts", postsRouter);
+
 
 app.listen(port, () => {
   console.log(`test app sulla porta ${appUrl}`);
