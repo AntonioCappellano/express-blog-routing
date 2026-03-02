@@ -49,7 +49,18 @@ router.post("/", (req, res) => {
 router.put("/:id", (req, res) => {
   const postsId = req.params.id;
   const responseData = {
-    result: `Modifica post`,
+    result: `Modifica post ${postsId}`,
+    success: true,
+  };
+
+  res.json(responseData);
+});
+
+// MODIFY
+router.patch("/:id", (req, res) => {
+  const postsId = req.params.id;
+  const responseData = {
+    result: `Modifica parziale del post ${postsId}`,
     success: true,
   };
 
